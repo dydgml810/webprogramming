@@ -1,0 +1,62 @@
+show databases;
+use testdb;
+show tables;
+alter table member drop column phone;
+alter table member change column passwd password varchar(60);
+rename table member to student;
+insert into student values('1', '홍길동', '1234');
+
+select * from student;
+select name, password from student;
+
+insert into student values('2', '홍길순', '1235');
+insert into student values('3', '수여인', '1236');
+insert into student values('4', '수여남', '1237');
+
+select * from student limit 3;
+
+select * from student order by id desc limit 3;
+
+select * from student where id=2;
+
+update student set name='관리자' where name='홍길동';
+select * from student;
+
+delete from student where id=4;
+select * from student;
+
+delete from student;
+select * from student;
+
+
+
+CREATE TABLE IF NOT EXISTS member(
+id VARCHAR(20) NOT NULL,
+passwd VARCHAR(20),
+name VARCHAR(30),
+PRIMARY KEY (id)
+);
+show tables;
+
+CREATE DATABASE IF NOT EXISTS boardDB;
+USE boardDB;
+CREATE TABLE IF NOT EXISTS posts(
+id INT AUTO_INCREMENT PRIMARY KEY,
+title VARCHAR(255) NOT NULL,
+content TEXT,
+file_name VARCHAR(255)
+);
+select * from posts;
+use testdb;
+
+create database if not exists boardDB;
+use boardDB;
+show tables;
+select * from posts;
+
+
+
+create database webshop;
+use webshop;
+
+use boardDB;
